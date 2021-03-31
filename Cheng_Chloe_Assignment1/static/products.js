@@ -4,7 +4,7 @@ var products=
     {
         "name": "Pencil",
         "price": 1.00,
-        "image": "/images/pencil111.jpg"
+        "image": "images/pencil111.jpg"
     },
 
 
@@ -12,7 +12,7 @@ var products=
     {
         "name": "Eraser",
         "price": 2.00,
-        "image": "/images/10192256.webp"
+        "image": "images/10192256.webp"
     },
 
 
@@ -20,7 +20,7 @@ var products=
     {
         "name": "Folder",
         "price": 10.00,
-        "image": "/images/rectangular-file-folder-500x500.jpg"
+        "image": "images/rectangular-file-folder-500x500.jpg"
     },
 
 
@@ -28,7 +28,7 @@ var products=
     {
         "name": "Stapler",
         "price": 14.00,
-        "image": "/images/42690726-1-f.jpg"
+        "image": "images/42690726-1-f.jpg"
     },
 
 
@@ -36,13 +36,13 @@ var products=
     {
         "name": "Notebook",
         "price": 5.00,
-        "image": "/images/GUEST_e500019a-c9ad-4b60-8def-a286180a1ea9.jpg"
+        "image": "images/GUEST_e500019a-c9ad-4b60-8def-a286180a1ea9.jpg"
     },
 
 
     {
         "name": "Calculator",
         "price": 15.00,
-        "image": "/images/c89acab8-c1cc-4959-8440-3fee39e6b88a_1-b71394f0af9a3b27c9c7011b81548f9f.jpg"
+        "image": "images/c89acab8-c1cc-4959-8440-3fee39e6b88a_1-b71394f0af9a3b27c9c7011b81548f9f.jpg"
     }
 ];
