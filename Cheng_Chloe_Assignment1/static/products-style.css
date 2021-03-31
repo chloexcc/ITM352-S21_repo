@@ -64,10 +64,11 @@ h3{
 }
 
 p {
-  line-height: 1rem;;
+  line-height: 0.9rem;;
   font-family: 'Perpetua';
-  font-size: 1rem;
+  font-size:10px;
   position:static;
+  bottom: -100;
   
 }
 
@@ -95,7 +96,7 @@ header {
 
 footer {
   position:relative;
-  bottom: -200;
+  bottom: -250;
 }
 
 footer h1 {
