@@ -32,8 +32,8 @@ h1 {
   font-size: 5.5rem;
   background-size: 48px 48px;
   background-blend-mode: lighten;
-  color:#e28930;
-  text-shadow: 2px 0 0 rgb(20, 85, 190),
+  color:#e98a2b;
+  text-shadow: 2.5px 0 0 rgb(20, 85, 190),
   0 1px 0 rgb(255, 255, 255),
   -1px 0 0 white,
   0 -1px 0 white;
@@ -64,8 +64,11 @@ h3{
 }
 
 p {
-  font-size: 1.7rem;
+  line-height: 1rem;;
+  font-family: 'Perpetua';
+  font-size: 1rem;
   position:static;
+  
 }
 
 
@@ -129,14 +132,16 @@ section {
 }
 
 section p {
-  color: rgb(15, 48, 113);
-  background: rgb(246, 209, 134);
+  color: rgb(18, 45, 100);
+  background: rgb(251, 208, 123);
   width: 50px;
   height: 50px;
   line-height: 53px;
   text-align: center;
+  font-family:monospace;
+  font-size: 19px;
   border-radius: 50%;
-  box-shadow: 3px 3px 2px rgb(97, 98, 98);
+  box-shadow: 3px 3px 2px rgb(114, 129, 129);
   position: absolute;
   right: 9px;
   bottom: -90px;
@@ -173,8 +178,8 @@ img {
   
 input {
   background: rgb(255, 255, 255);
-  box-shadow: 2px 2px 1px rgb(246, 213, 121);
-  color: rgb(63, 89, 205);
+  box-shadow: 2px 2px 1px rgb(236, 190, 66);
+  color: rgb(50, 81, 215);
   border: none;
   padding: 7px;
   width: 190x;
@@ -182,8 +187,8 @@ input {
 }
 
   section input {
-    color: rgb(68, 68, 227);
-    background: rgb(248, 218, 158);
+    color: rgb(39, 39, 238);
+    background: rgb(246, 221, 171);
     width: 45px;
     height: 45px;
     line-height: 50px;
