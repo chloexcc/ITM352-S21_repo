@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Smart Phone Store</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Cherry+Swash|Raleway" rel="stylesheet">
+
+    <link href="products-style.css" rel="stylesheet">
+    <style id='localStyle'></style>
+    <script>
+        var store_name = "Chloe Cheng";
+        var first_name = 'Chloe';
+        var last_name = 'Cheng';
+
+
+    </script>
+</head>
+
+<body>
+    
+    <header>
+        
+        <center>
+            <span style="font-size: 600%;"> 
+            <script>
+            document.write(
+                "<b>" + first_name + "</b><i>" + last_name + "</i>'s" );
+                  </script>  
+                </span>
+          <h1>          
+                Used Smart Phone Store
+          </h1>          
+        </center>
+        <p style="text-align: center; font-weight: bold;"> 
+            Hits:<span id="hits_span">0</span>
+            Spins:<span id="spins_span">0</span>
+            Hit/Spin:<span id="hit_spin_span">0</span>
+            </p>
+
+    </header>
+    <div>
+        <main>
+            <section class="item" onmouseover="  
+            spins_span.innerHTML = ++spins;
+             this.className='item rotate';
+            hit_spin_span.innerHTML = hits_span.innerHTML/spins_span.innerHTML;"
+
+             onclick="
+                hits_span.innerHTML = ++hits;
+                this.className='item';">
+                <h2>HTC</h2>
+                <p>$40.00</p>
+                <img src="http://dport96.github.io/ITM352/morea/080.flow-control-II/HTC.jpg" alt="HTC Phones">
+            </section>
+            
+            <section class="item" onmouseover="
+            hits_span.innerHTML = hits;
+            spins_span.innerHTML = spins;
+             this.className='item rotate';
+             " onclick="
+                hits_span.innerHTML = hits;
+                spins_span.innerHTML = spins;
+                this.className='item';">
+                <h2>Apple</h2>
+                <p>$75.00</p>
+                <img src="http://dport96.github.io/ITM352/morea/080.flow-control-II/iphone-3gs.jpg">
+            </section>
+
+            <section class="item" onmouseover="
+            hits_span.innerHTML = hits;
+            spins_span.innerHTML = spins;
+             this.className='item rotate';
+             " onclick="
+                hits_span.innerHTML = hits;
+                spins_span.innerHTML = spins;
+                this.className='item';">
+                <h2>Nokia</h2>
+                <p>$35.00</p>
+                <img src="http://dport96.github.io/ITM352/morea/080.flow-control-II/Nokia.jpg">
+            </section>
+
+            <section class="item" onmouseover="
+            hits_span.innerHTML = hits;
+            spins_span.innerHTML = spins;
+             this.className='item rotate';
+             " onclick="
+                hits_span.innerHTML = hits;
+                spins_span.innerHTML = spins;
+                this.className='item';">
+                <h2>Samsung</h2>
+                <p>$45.00</p>
+                <img src="http://dport96.github.io/ITM352/morea/080.flow-control-II/Samsung.jpg">
+            </section>
+
+            <section class="item">
+                <h2>Blackberry</td>
+                </h2>
+                <p>$10.00</p>
+                <img src="http://dport96.github.io/ITM352/morea/080.flow-control-II/Blackberry.jpg">
+            </section>
+
+        </main>
+    </div>
+    <footer>
+        <script>
+        document.write(`
+        <table border="1" style="margin-left: auto; margin-right: auto; text-align: center;">
+            <tr><th colspan="2"><h1>Your One Stop For Used Phones - 
+            ${first_name = '.' + last_name + '.'}'s</h1></th></tr>
+            <tr><td>1.</td><td><br />Copyright @ Chloe Cheng</td></tr>
+            <tr><td>2.</td><td>2021</td></tr>
+            <tr><td>3.</td><td>11:15 AM</td></tr>
+        </table>
+        `);
+        </script>
+    </footer>
+</body>
+
+</html>
+<script>
+    var hits =  0;
+    var spins = 0;  
+</script>
