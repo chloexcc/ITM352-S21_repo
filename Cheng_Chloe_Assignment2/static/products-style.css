@@ -32,8 +32,8 @@ h1 {
   font-size: 5.5rem;
   background-size: 48px 48px;
   background-blend-mode: lighten;
-  color:#e98a2b;
-  text-shadow: 2.5px 0 0 rgb(20, 85, 190),
+  color:#e57d16;
+  text-shadow: 1px 0 0 rgb(153, 189, 246),
   0 1px 0 rgb(255, 255, 255),
   -1px 0 0 white,
   0 -1px 0 white;

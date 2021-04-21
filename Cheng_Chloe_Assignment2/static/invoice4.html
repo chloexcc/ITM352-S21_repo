@@ -36,14 +36,26 @@
 }
     </style>
     <link href="products-style.css" rel="stylesheet">
+    
 </head>
 <body style="background-color:rgba(251, 253, 243, 0.937);">
   <style>
     h1 {text-align: center;}
   </style>
 
-  <h1>Thank you for purchased! &#128522;</h2>
-    <table class="center" border="2.5" >
+    <script>
+      //this section identifies the user from their account 
+      if (name != 'undefined' && name != '') {
+        document.write (`
+          <h1 align="center"> ${name}, Thank you for purchasing with us! &#128522;<h1>
+        `)
+      } else {
+        document.write (`<h1 align="center"> ${name}, Thank you for purchasing with us! &#128522;<h1>
+        `)
+      }
+    </script>
+    
+    <table class="center" border="1" >
         <tbody>
           <tr>
             <th style="text-align: center;font-family: Optima;" width="43%">Item</th>
@@ -116,6 +128,7 @@
           <p style="font-size:21">Subtotals over $100: charged 3% of the subtotal amount</p>
           <p style="font-size:21">Estimate 3-5 days shipping </p>
       </b></div>
+
 </body>
 
 </html>
