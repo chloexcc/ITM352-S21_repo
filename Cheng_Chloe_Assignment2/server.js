@@ -30,16 +30,16 @@ if(fs.existsSync(filename)) {
 app.post("/process_login", function (req, res) {
     var LogError = [];
     console.log(req.query);
-    the_username = req.body.username.toLowerCase(); //input username in lowercase
-    if (typeof user_data[the_username] != 'undefined') { //matching username/leave undefined
+    the_username = req.body.username.toLowerCase(); //username in lowercase
+    if (typeof user_data[the_username] != 'undefined') { //matching username
         if (user_data[the_username].password == req.body.password) {
             console.log(req.query);
             req.query.username = the_username; 
             console.log(user_data[req.query.username].name);
             req.query.name = user_data[req.query.username].name
             res.redirect('/invoice4.html?' + queryString.stringify(req.query));
-            return; // //check login username and password match database, all good, send to invoice
-        } else { //show invalid password if input a wrong password
+            return; // all good, send to invoice
+        } else { //password wrong, show invalid password
             LogError.push = ('Invalid Password');
             console.log(LogError);
             req.query.username= the_username;
@@ -61,45 +61,45 @@ app.post("/process_register", function (req, res) {
     console.log(qstr);
     var errors = [];
 
-    if (/^[A-Za-z]+$/.test(req.body.name)) { //must enter full name on name part
+    if (/^[A-Za-z]+$/.test(req.body.name)) { //full name on name part
     }
     else {
       errors.push('Use Only Letters for Full Name')
     }
 
     if (req.body.name == "") {
-      errors.push('Invalid Full Name');// telling full name is invalid if put wrong
+      errors.push('Invalid Full Name');// full name is invalid if put wrong
     }
-    
+
      if ((req.body.fullname.length > 20 && req.body.fullname.length <1)) {
-    errors.push('Full Name Too Long')// the length of full name has to be 1-20
+    errors.push('Full Name Too Long')// fullname length :1-20
   }
-  //Check the new username in lowercase among other usernames
-    var reguser = req.body.username.toLowerCase(); 
-    if (typeof user_data[reguser] != 'undefined') { //shows username taken if the username is undefinced or the username is been taken 
+  
+    var reguser = req.body.username.toLowerCase(); //username in lowercase
+    if (typeof user_data[reguser] != 'undefined') {
       errors.push('Username taken')
     }
-    //username only input letter and number
-    if (/^[0-9a-zA-Z]+$/.test(req.body.username)) {
+    
+    if (/^[0-9a-zA-Z]+$/.test(req.body.username)) {//username only letter and number
     }
     else {
       errors.push('Username: Letters And Numbers Only')
     }
-  
-    //password length has to be at least 6 characters
-    if (req.body.password.length < 6) {
+
+    
+    if (req.body.password.length < 6) {//password length: 6 characters or more
       errors.push('Password: At least 6 Characters and/or Numbers Required')
     }
-    // check the repeat password match to the password
-    if (req.body.password !== req.body.repeat_password) { 
+   
+    if (req.body.password !== req.body.repeat_password) {  // matching password
       errors.push('Password Not Match')
     }
-    //Some parts are from Lab 14. Save the user's refister information if there is no error
-    if (errors.length == 0) {
+   
+    if (errors.length == 0) { // Save user's refister information if no error
       POST = req.body
       console.log('no errors')
       var username = POST['username']
-      user_data[username] = {}; //user's information registration
+      user_data[username] = {}; 
       user_data[username].name = req.body.fullname;
       user_data[username].password= req.body.password;
       user_data[username].email = req.body.email;
@@ -107,8 +107,8 @@ app.post("/process_register", function (req, res) {
       fs.writeFileSync(filename, data, "utf-8");
       res.redirect('./invoice4.html?' + queryString.stringify(req.query));
     }
-    //if error occurs, log the user to the console and direct them to register page
-    else{
+    
+    else{ //if error occurs, direct to register page
         console.log(errors)
         req.query.errors = errors.join(';');
         res.redirect('register.html?' + queryString.stringify(req.query));
@@ -116,22 +116,21 @@ app.post("/process_register", function (req, res) {
 });
 
 
-//Processing the purchase and rendering the invoice on the server, some part from assignment1
-app.post("/process_purchase", function (request, response) {
-    let POST = request.body; // data will be in the body
+app.post("/process_purchase", function (request, response) { //Processing the purchase and rendering the invoice on the server
+    let POST = request.body; 
 
-//check if quantities are NonNegInt
-    if (typeof POST['purchase_submit'] != 'undefined') {
-        var hasvalidquantities=true; // Assume the created variable is true
+
+    if (typeof POST['purchase_submit'] != 'undefined') { //if quantities are NonNegInt
+        var hasvalidquantities=true; 
         var hasquantities=false
         for (i = 0; i < products.length; i++) {
-            
+
     qty=POST[`quantity${i}`];
-        hasquantities=hasquantities || qty>0; // is valid (quantity) if the value > 0
-        hasvalidquantities=hasvalidquantities && isNonNegInt(qty);    // is valid if it is both a quantity > 0  
+        hasquantities=hasquantities || qty>0; // is valid if value > 0
+        hasvalidquantities=hasvalidquantities && isNonNegInt(qty);  // is valid if both > 0  
         } 
 
-        // go to the invoice if all quantities are valid
+
         const stringified = queryString.stringify(POST);
         if (hasvalidquantities && hasquantities) {
           response.redirect("./login.html?"+stringified);
@@ -143,15 +142,15 @@ app.post("/process_purchase", function (request, response) {
     }
 });
 
-//repeating the isNonNegInt from the products_display page
-function isNonNegInt(q, returnErrors = false) { //check the value are integer
-    errors = []; // assume no error in quantity 
+function isNonNegInt(q, returnErrors = false) { //value are integer
+    errors = [];  
     if (q == "") { q = 0; }
-    if (Number(q) != q) errors.push('Not a number!'); //check the string is a number
-    if (q < 0) errors.push('Negative value!'); //check the value is a not negative
-    if (parseInt(q) != q) errors.push('Not an integer!'); //check the value is an integer
+    if (Number(q) != q) errors.push('Not a number!'); // string is a number
+    if (q < 0) errors.push('Negative value!'); //value is positive
+    if (parseInt(q) != q) errors.push('Not an integer!'); //value is an integer
     return returnErrors ? errors : (errors.length == 0);
 }
 
+//server side
 app.use(express.static('./static')); 
-app.listen(8080, () => console.log(`listening on port 8080`)); // listen on port 8080
+app.listen(8080, () => console.log(`listening on port 8080`)); // listen on port 8080 

@@ -45,14 +45,10 @@
 
     <script>
       //this section identifies the user from their account 
-      if (name != 'undefined' && name != '') {
         document.write (`
-          <h1 align="center"> ${name}, Thank you for purchasing with us! &#128522;<h1>
+          <h1 align="center"> Aloha ${params.get('name')}! Thank you for purchasing with us! &#128522;<h1>
         `)
-      } else {
-        document.write (`<h1 align="center"> ${name}, Thank you for purchasing with us! &#128522;<h1>
-        `)
-      }
+  
     </script>
     
     <table class="center" border="1" >
