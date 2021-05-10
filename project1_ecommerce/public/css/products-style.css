@@ -1,0 +1,237 @@
+/* General */
+ 
+
+html {
+  
+  font-family: 'Raleway', sans-serif;
+
+  font-size: 10px;
+  
+}
+
+body {
+  background-image: url(flowerimages/bg.jpg);
+  
+  background-size:cover;
+  height: 800px;
+  width: 800px;
+  margin: auto;
+
+}
+
+/* Typography */
+
+
+h1, h2 {
+  
+  font-family: 'Cherry Swash', cursive;
+  margin: 0;
+  
+  text-align: center;
+}
+
+
+h1 {
+  font-size: 5rem;
+  background-size: 48px 48px;
+  background-blend-mode: lighten;
+}
+
+/*h2 {
+  font-size: 2rem;
+  color: rgb(210, 126, 226);
+  text-align: right;
+  width: 160px;
+  position: absolute;
+  right: 4%;
+  z-index: 3000;
+  text-shadow: 2px 2px 1px black;
+  line-height: 2rem;
+  padding-top: 0.3rem;
+}*/
+
+/*p {
+  font-size: 1.5rem;
+}
+*/
+
+footer h1 {
+  font-style: italic;
+  font-size: 3rem;
+}
+
+aside {
+  flex: 3;
+}
+
+main {
+  flex: 7;
+}
+
+
+/*  Form styling */
+
+main {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+}
+
+
+
+
+aside div {
+  margin-bottom: 20px;
+}
+
+
+/* Styling the products */
+
+
+section {
+  width: 45%;
+  margin: 5px;
+
+  position: relative;
+  height: 215px;
+}
+
+section p {
+  color: rgb(223, 89, 89);
+  background: rgb(226, 225, 225);
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  border-radius: 50%;
+  box-shadow: 2px 2px 1px yellow;
+  position: absolute;
+  right: 10px;
+  top: 140px;
+  bottom: -6px;
+  z-index: 2000;
+}
+
+.inputbox{
+  width: 100px;
+}
+
+.item {
+  width:250px;
+  height: 300px;
+  background-size: 234px 24px;
+
+
+  text-align: center;
+}
+
+.item h2{
+  font-size: 2rem;
+  width: 200px;
+  position: absolute;
+  color: rgb(210, 126, 226);
+  left: 30px;
+  
+}
+
+.item label{
+  text-align: center;
+  font-size: 12px;
+  padding-bottom:20px;
+}
+
+.item p{
+  font-size: 1.5rem;
+}
+
+
+.img_pad{
+  height:170px;
+  width: 170px;
+  line-height: 200px;
+  position: relative;
+  border: 1px solid black;
+  text-align: center;
+  top: 10px;
+  left: 40px;
+
+}
+
+.flowerImage{
+  width: 170px;
+  height: 170px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+
+
+/*--------------------------user dropdown menu--------------------------*/
+
+.action{
+  position:fixed;
+  top: 20px;
+  right: 100px;
+}
+
+.action .user_menu::before{
+  content: '';
+  position: aboslute;
+  top: -5px;
+  right: 28px;
+  width: 20px;
+  height: 20px;
+  background: white;
+  transform: rotate(45deg);
+}
+
+.action .user_menu{
+  position:absolute;
+  top:50px;
+  right: -10px;
+  padding: 10px 20px;
+  background: #fff;
+  width: 200px;
+  box-sizing: 0 5px 25px rgba(0,0,0,0.1);
+  border-radius: 15px;
+  transition: 0.5s;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.action .user_menu.active{
+  visibility: visible;
+  opacity: 1;
+}
+
+.action .user_menu ul li{
+  list-style: none;
+   padding: 10px 0;
+   border-top: 1px solid rgba(0,0,0,0.05);
+   display: : flex;
+   align-items: center;
+}
+
+.action .user_menu ul li img{
+  max-width: 20px;
+  margin-right: 10px;
+  opacity: 0.5;
+  transition: 0.5s;
+}
+
+.action .user_menu ul li:hover img{
+  opacity: 1;
+}
+
+.action .user_menu ul li a{
+  display: inline-block;
+  text-decoration: none;
+  color: black;
+  font-weight: 5000;
+  transition: 0.5s;
+}
+
+.action .user_menu ul li:hover a{
+  color:red;
+}

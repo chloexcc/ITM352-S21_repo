@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/shopping_cart.css">
+    <title>Invoice</title>
+</head>
+<body>
+  <div class = "action">
+    <div class = "profile" onclick = "menuToggle();">
+        <img src ="user_icons/user.png">
+    </div>
+
+  <% if (username) { %>
+        <div class="user_menu">
+           <h3 style="text-align: center">Hi, <%= username.fullname%></h3>
+           <ul>
+            <li ><img src="/user_icons/user.png"><a href="#">Profile</a></li>
+            <li ><img src="user_icons/shopping-cart.png"><a href="#">Cart</a></li>
+            <li ><img src="user_icons/log-out.png"><a href="#">Log Out</a></li>
+            </ul>
+            </div>
+
+        <% }else{ %>
+            <div class="user_menu">
+            <ul>
+            <li><img src="user_icons/login.png"><a href="login.ejs">Log in</a></li>
+            </ul>
+            </div>
+        <%}%>
+</div>
+
+<script>
+    function menuToggle(){
+        const toggleMenu = document.querySelector('.user_menu');
+        toggleMenu.classList.toggle('active')
+    }
+</script>
+
+
+
+    <h2 style="text-align: center">Invoice</h2>
+    <table class="center">
+        <thead>
+            <tr>
+                <th>Type</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Total</th>
+            </tr>
+        </thead>
+        <tbody>
+          <%prices = [];%>
+
+            <% for (var i =0; i < cart.length;  i++ ) { 
+                          
+        var extended_price = cart[i].quantity * cart[i].price;
+        prices.push(parseInt(extended_price));
+
+        %>
+                <tr>
+                    <td>  <%= cart[i].type  %></td>
+                    <td>  <%= cart[i].quantity  %></td>
+                    <td> $ <%= cart[i].price  %></td>
+                    <td> $ <%= extended_price  %>
+
+                </tr>
+                
+            <% } %>
+            <%
+            var subtotal = 0;
+          for(p in prices){
+            subtotal = parseInt(subtotal) + parseInt(prices[p]);
+            console.log(prices[p]);
+          }
+          console.log(subtotal);
+          const tax_rate = 0.0575;
+          var tax = tax_rate*subtotal; 
+        
+
+           if(subtotal <= 50){
+            shipping = 2;
+        }else if(subtotal <= 100){
+            shipping = 5;
+        }else{
+            shipping = 0.05 * subtotal;
+        }
+
+          var total = subtotal + tax + shipping;
+
+          %>
+            <tr>
+                  <td colspan="4" width="400%">&nbsp;</td>
+                </tr>
+                <tr>
+                <td style="text-align: center;font-family: Garamond;" colspan="3" width="67%">Sub-total</td>
+                <td width="400%">$<%=subtotal%></td>
+              </tr>
+              <tr>
+                <td style="text-align: center;font-family: Garamond;" colspan="3" width="67%"><span style="font-family: Lucida Bright;">Tax @ <%=100*tax_rate;%></span></td>
+                 <td width="400%">$<%=tax.toFixed(2);%></td>
+              </tr>
+              <tr>
+                <td style="text-align: center;font-family: Garamond;" colspan="3" width="67%"><strong>Total</strong></td>
+                <td width="54%"><strong>$<%=total.toFixed(2);%></strong></td>
+              </tr>
+        </tbody>
+    </table>
+
+      <div style= "text-align: center; margin-top:10px; position:center; top: -14px">
+
+
+        <br><b>
+          <p style="font-size:35"><strong>Thank you <%=username.fullname%> for choosing us.</strong></p >
+          <p style="font-size:21">Your flowers will be arrived in 3 - 5 business days.</p >
+           </div>
+            </body></p >
+      </b></div>
+      
+   <br>
+      <p style="font-size: 22" >
+      <p><a href="products">Back to Product Page</a></p>
+      <!-- <p><a href="./login.html">Back to Login Page</a></p> -->
+    </p></br>
+</body>
+</html>

@@ -1,0 +1,222 @@
+<!--Rianne Pada
+Register page for people to sign up for an account-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+  <title>Register</title> <!--Name that appears on tab -->
+  <link rel="stylesheet" href="register.css"> <!--style sheet for page-->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Concert+One&display=swap" rel="stylesheet"> <!--Font by google fonts-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" charset="utf-8"></script>
+    <!--loads in css and js files from template-->
+    <style>
+        
+        body {
+	background-image: url("https://i.ibb.co/YZQcSMt/space-pattern.gif"); /*gif that runs on reg page background*/
+	font-family: 'Concert One', cursive;font-size: 22px; /*the bubbly font on registration page*/
+   }
+   .white-box { /*white box surrounding the reg forms*/
+	/*font and color details*/
+    background-color: white;
+	color: black;
+	padding: 16px 50px;
+	width: 510px; height: 700px; margin-left: auto; margin-right: auto; 
+	position: relative;
+    left: 400px 
+   }
+    .topnav {
+      overflow: hidden;
+      background-color: purple;
+    }
+    
+    .topnav a {
+      float: left;
+      color: #f2f2f2;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      font-size: 17px;
+    }
+    /* Changes color on hover*/
+    .topnav a:hover {
+      background-color: #7A8B8B;
+      color: black;
+    }
+    </style>
+</head>
+
+<body id="top">
+
+    <!-- Header -->
+</header>
+   <!-- navbar, directs to pages -->
+   <div class="topnav"> 
+    <a class="active" href="./index.html">Home</a> 
+    <a class="active" href="./all.html">All</a> 
+    <a href="./tvmovie.html">TV, Movies and Music</a> 
+    <a href="./videogame.html">Video Game</a> 
+    <a href="./holidays.html">Holidays</a>
+    <a href="./objectfood.html">Objects and Food</a> 
+    <script>
+        // REFERENCED FROM DANIEL PORT'S OFFICE HOURS 12/14
+        // creates label for logging in and out
+        function getCookie(cname) { // pull in cookie
+  var name = cname + "="; 
+  var decodedCookie = decodeURIComponent(document.cookie); // setting cookie variable
+  var ca = decodedCookie.split(';'); // splitting cookie
+  for(var i = 0; i <ca.length; i++) {
+    var c = ca[i]; // setting variables
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    } // getting cookie by name 
+    if (c.indexOf(name) == 0) {  
+      return c.substring(name.length, c.length);
+    }
+  }
+  return ""; // returing cookie
+}
+var username = getCookie('username'); // get the cookies username
+console.log(username); // write it in console
+if (username != ""){ // if username is NOT undefined
+    document.write(`<a href="./logout">Logout ${username}</a>`); // shows text to log the user out
+} else { // if the username IS undefined
+    document.write(`<a href="./login">Login</a>`); // shows text to log user in
+}
+    </script><a href="./cart.html"><script>
+        // REFERENCED FROM ALYSSA MENCEL
+                        var cart = sessionStorage.length; // cart is in session storage
+                                    if (cart > 0) { // if cart amount is greater than 0
+                                        document.write(`
+                                            <p><font color="#555f66"> Shopping Cart </font> <font color="#629DD1">(${cart})</font></p>
+                                        `) // show the number of items in the cart
+                                    }
+                                    else { // if there are no items in cart
+                                        document.write (`<p> <font color="#555f66"> Shopping Cart </font> </p> `)
+                                    }; // just show the shopping cart label
+                    </script></a>
+            </div>
+        </header>
+    <!-- Ask user to log in -->
+    <!-- Banner -->
+
+    <div class="white-box"> 
+    <!-- Made with help from lab14 exercise 4-->
+    <form name="registration_form" action="javascript:register_user();" method="GET">
+        <br>
+        <div style="text-align:center">  
+            <h1>Register</h1>
+        <center>
+            <input type="text" name="name" size="40" placeholder="Enter Name">
+            <span id="name_message"></span> <!--Enter your name-->
+        <input type="text" name="username" size="40" placeholder="Enter Username">
+        <span id="username_message"></span> <!--Enter your username-->
+        <input type="email" name="email" size="40" placeholder="Enter Email">
+        <span id="email_message"></span> <!--Enter your email-->
+        <input type="password" name="password" size="40" placeholder="Enter Password">
+        <span id="password_message"></span> <!--Enter your password-->
+        <input type="password" name="repeat_password" size="40" placeholder="Confirm Password">
+        <span id="repeat_password_message"></span> <!--Confirm your password-->
+        <input type="address" name="address" size="40" placeholder="Mailing Address">
+        <span id="address"></span> <!--Enter your address-->
+        <br> </center>
+        <center><input type="submit" value="Register" id="submit" name="register_button"></center> <!--submit your data-->
+
+    </form>
+
+    <script>
+        //REFERENCED FROM https://www.codecademy.com/forum_questions/52f8f88052f863eacf000c06
+        function setCookie(cname, cvalue, exdays) { //sets cookie
+            var d = new Date(); //today's date
+            d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000)); //expiration is set to a day after inital login
+            var expires = "expires=" + d.toUTCString(); 
+            document.cookie = cname + "=" + cvalue +
+             ";" + expires + ";path=/"; 
+        }
+        // REFERENCED FROM DANIEL PORT OFFICE HOURS APPOINTMENT 12/14
+        function getCookie(name) {
+            var nameEQ = name + "=";
+            var ca = document.cookie.split(';'); // split cookie
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+                if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+            }
+            return null; // return nothing 
+        }
+        //REFERENCED FROM https://stackoverflow.com/questions/2144386/how-to-delete-a-cookie
+        function eraseCookie(name) { // deleting a cookie 
+            document.cookie = name + '=; Max-Age=-99999999;'; // max age 
+        }
+
+        // REFERENCED FROM https://stackoverflow.com/questions/25639290/windows-history-back-location-reload-jquery/35547598
+        // so when someone registers the page is redirected to home page
+        function GoBackWithRefresh(event) { 
+            // setting variables
+            var past = document.referrer;
+            var index = 'index.html' 
+            var pastPage = past.split('/').pop();
+
+            if (pastPage != 'login.html' && pastPage != 'register.html') { 
+                window.location = index; // if past page wasn't login or register go back to index
+            } else if (pastPage == 'login.html' && pastPage == 'register.html') {
+                window.history.go(-2); // if your past page is login or register go back two windows
+            } else {
+                window.location.href = './index.html'; // anything else, go index
+            }
+
+        };
+
+        // REFERENCED FROM https://stackoverflow.com/questions/46640024/how-do-i-post-form-data-with-fetch-api
+        function register_user() { 
+            data = new URLSearchParams(new FormData(registration_form)); // sets variable 
+
+            fetch('/register_user', // when user registers this function is "fetched"
+                {
+                    method: 'post',
+                    body: data,
+                    redirect: 'follow'
+                }
+            ).then(function (response) { 
+
+                if (response.ok) {
+
+                    response.json().then(function (errors) { // if the response is not okay, send errors
+
+                        if (Object.keys(errors).length == 0) { 
+                            sessionStorage.clear(); //resets the session
+                            var theDate = JSON.stringify(Date()); //has time of login
+                            // sets cookie variables
+                            var username = registration_form.username; 
+                            var userEmail = registration_form.email;
+                            var address = registration_form.address;
+                            var user_name = registration_form.name;
+                            // creating the cookie with last login time, plus all the registration data
+                            setCookie('last_login_time', JSON.parse(theDate),'username', username, 'email', userEmail, 'name', user_name, 'address', address); 
+                            response.redirect(GoBackWithRefresh()); // goes backwards after data is posted
+                        } else {
+
+                            for (errorId in errors) {  // errors?
+                                document.getElementById(errorId + '_message').innerHTML = errors[errorId]; 
+                            } // writes errors
+
+                        }
+
+                    });
+
+                }
+
+                else { // debugging/tells users what's wrong
+                    console.log('Network request for /register_user failed with response ' + response.status + ': ' + response.statusText); 
+                }
+
+            });
+        }
+
+    </script>
+
+</body>
+
+</html>

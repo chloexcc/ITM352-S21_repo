@@ -1,0 +1,258 @@
+<!--Rianne Pada 
+    Displays cart, product data and edit access-->
+    <script src="./products.js" type="text/javascript"></script> <!--bringing in file-->
+    <link href="css/cart.css" rel="stylesheet"> <!--cart CSS-->
+    <script>
+        var cart = sessionStorage; //setting variable cart 
+        var quantities = []; // variable for quantities
+          if (cart.length == 0) {  // cart length equal zero?
+            alert('Your cart is empty! Please add some items to view your cart.'); // alert appears saying you can't see cart until you add items
+            window.location.href = './all.html'; // sends you back to all products page
+        };
+    // COOKIE FUNCTION WITH HELP FROM DANIEL PORT OFFICE HOURS APPOINTMENT
+     // create security. if you have the right cookie you can access the page. if not you need to login
+     function getCookie(cname) { // pull in cookie
+          var name = cname + "="; 
+          var decodedCookie = decodeURIComponent(document.cookie); // setting cookie variable
+          var ca = decodedCookie.split(';'); // splitting cookie
+          for(var i = 0; i <ca.length; i++) {
+            var c = ca[i]; // setting variables
+            while (c.charAt(0) == ' ') {
+              c = c.substring(1);
+            } // getting cookie by name 
+            if (c.indexOf(name) == 0) {  
+              return c.substring(name.length, c.length);
+            }
+          }
+          return ""; // returing cookie
+        }
+    var username = getCookie('username');
+    console.log(username);
+    if (username != ""){ // if username is NOT UNDEFINED
+    } else { // if it is undefined
+        alert(`Please login in access your cart`); //alert shows explaining the problem
+        window.location.href = './login'; // redirects to the login page
+        
+    }
+    // REFERENCED FROM ALYSSA MENCEL
+        function addItem(theProduct, theIndex) {  //changes item quantity in cart
+            var thisRowQty = parseInt(sessionStorage.getItem(`${theProduct}${theIndex}`)); 
+            thisRowQty += 1; //adds 1
+            sessionStorage.setItem(`${theProduct}${theIndex}`, thisRowQty); // changes value in session
+            window.location.reload(); //reloads the page 
+        };
+        // REFERENCED FROM ALYSSA MENCEL
+       
+        function removeItem(theProduct, theIndex) {  // like above function, but subtracts
+            var thisRowQty = parseInt(sessionStorage.getItem(`${theProduct}${theIndex}`)); 
+            if (thisRowQty > 0) { // quantity greater than 0? 
+                thisRowQty -= 1; // when button is pushed quantity decreases by one
+                sessionStorage.setItem(`${theProduct}${theIndex}`, thisRowQty); // updates session value
+                window.location.reload(); //reloads the page 
+            }
+    
+        
+        };
+    // REFERENCED FROM ALYSSA MENCEL
+        function checkCart() { // function name
+            if (cart.length == 0) { // if cart size is 0
+                window.location.reload(); // reload the page
+            } else if (theUsername == '') { // if username doesn't exist
+                alert(`Please log in before viewing cart`); // alert them that they have to login and lead to login
+                window.location.href = './login.html';
+            } else { // fetch cart data to create the invoice
+                fetch("/generateInvoice?cartData="+JSON.stringify(cart)+"&cookieData="+JSON.stringify(document.cookie), 
+                {
+                    method: "POST" // POSTS data
+                }).then(function (res) {
+                    return res.text(); // return the text
+                }).then(function (data) {
+                    document.write(data); // write the data on the page when user submits purchase
+                })
+            }
+        }
+    
+    </script>
+    <!--CART TEMPLATE REFERENCED FROM https://codepen.io/willpaige/pen/gwxbD-->
+    <!DOCTYPE html>
+    <html lang="en">
+        <div class="container">
+        <div class="heading">
+            <h1>
+              <span class="shopper"></span> Shopping Cart <!--title on the top-->
+            </h1>
+            
+            <a href="index.html" class="visibility-cart transition is-open">X</a> <!--when you X out the cart you go back to the home page-->
+          </div>
+    <head>
+        <style>
+            /*styling the header (again)*/
+            header{
+                text-align: center;
+                margin-bottom: 30px;
+            }
+            form{
+        text-align: center;
+    }
+        input[type=submit] {
+            font-weight: bold;
+            font-size: 20px;
+            color:black;
+            margin-top: 25px;
+        }
+    
+       /* styling the navbar */
+        .topnav {
+          overflow: hidden;
+          background-color:  #D291BC;
+        }
+        
+        .topnav a {
+          float: left;
+          color: #f2f2f2;
+          padding: 14px 16px;
+          font-size: 17px;
+        }
+        /* Changes color on hover*/
+        .topnav a:hover {
+          background-color: #FF69B4	;
+          color: black;
+        }
+        body {
+    background-color: #FFF0F5;
+        }
+        </style>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Shopping Cart</title> <!--title on tab-->
+    </head>
+    
+    <body id="top"> <!--body class-->
+        <!-- Header -->
+        <div class="topnav"> 
+                <ul>
+                 <div class="dropdown">
+                     <!--nav bar with pages-->
+                            <a class="active" href="./index.html">Home</a> 
+                            <a class="active" href="./all.html">All</a> 
+                            <a href="./tvmovie.html">TV, Movies and Music</a> 
+                            <a href="./videogame.html">Video Game</a> 
+                            <a href="./holidays.html">Holidays</a>
+                            <a href="./objectfood.html">Objects and Food</a> 
+                        </div>
+                      </div>
+                </ul>
+            </nav>
+        </header>
+      <section id="banner">
+        <div class="inner">
+        <script> 
+        // personalization
+            var theUser = getCookie('name'); //sets variables for cookie name and username
+            var theUsername = getCookie('username'); 
+            if (theUsername != '') { // use the username to create personalization on the invoice
+                document.write(`
+                    <p align="center">Welcome to your cart, ${theUsername}!</p>
+                `)
+            };
+        </script>
+        </div>
+        </section>
+    <br>
+    <!--creating table to show product data--> 
+        <section id="one" class="wrapper style1">
+          <table>
+            <tbody>
+                <tr>
+                    <!--top descriptive headers-->
+                    <td style="text-align: left;" width="40%"><strong>Product</strong></td>
+                    <td width="20%"><strong>Quantity</strong></td>
+                    <td width="20%"><strong>Price</strong></td>
+                    <td width="20%"><strong>Extended Price</strong></td>
+                </tr>
+                <script> //The script will take the info entered and put it in table 
+    // REFERENCED FROM DANIEL PORT SIMPLE SHOPPING CART A3 EXAMPLE
+                    subtotal = 0; // set subtotal to 0
+                    for (product in products) { 
+                        for (i = 0; i < products[product].length; i++) {
+                            // similar to writing product data in product pages
+                            qty = cart.getItem(`${product}${i}`); // setting qty variable
+                            if (qty > 0) { // quantity must be above 0 or else nothing will be written 
+                                extended_price = qty * products[product][i].price 
+                                subtotal += extended_price; 
+    
+                                document.write(`
+                                <tr>
+                                    <td style= "text-align: left" width="40%">${products[product][i].name}</td>
+                                    <td width="20%">${qty}
+                                        <input type="button" class="button alt" value="+1" onclick="addItem('${product}',${i});">
+                                        <input type="button" class="button alt" value="-1" onclick="removeItem('${product}',${i});"></td>
+                                    <td width="20%">\$${products[product][i].price}</td>
+                                    <td  width="20%">\$${extended_price}</td>
+                                </tr>
+                            `);
+                            }
+                        };
+                    }
+                    //compute tax information
+                    var tax_rate = 0.0471;
+                    var tax = tax_rate * subtotal; 
+                    // Compute shipping
+                    if (subtotal <= 50) {
+                        shipping = 2;
+                        } // if total is less then or equal to 50, shipping is $2
+                     else if (subtotal <= 100) {
+                      shipping = 5;
+                    } // if total is less then or equal to 100 but above 50 shipping is 5
+                     else {
+                      shipping = 0.05 * subtotal; 
+                      } // anything above 100, the shipping is 5% the subtotal
+                    // Compute grand total
+                      var total = subtotal + tax + shipping;
+                </script>
+    
+                <tr>
+                   <!--REFERENCED FROM https://stackoverflow.com/questions/53106992/remove-all-cart-items-from-a-button-on-a-custom-page-using-ajax-->
+                    <td align="center" colspan="4" width="100%"><input type="button" class="button special" value="Clear All"
+                            onclick="cart.clear(); window.location.reload();"><!--When button is pushed all items are removed. page is reloaded-->
+                    </td>
+    
+                </tr>
+    <!--printing out the grand totals-->
+                <tr>
+                    <td colspan="4" width="100%">&nbsp;</td>
+                  </tr>
+                  <tr><!--Subtotal-->
+                    <td colspan="3" width="67%">Sub-total</td>
+                    <td width="54%">$<script>document.write(subtotal.toFixed(2));</script></td>
+                  </tr>
+                  <tr><tr><!--Tax-->
+                    <td  colspan="3" width="67%"><span>Tax at <script>document.write(100*tax_rate);</script>%</span></td>
+                    <td width="54%">$<script>document.write(tax.toFixed(2));</script></td>
+                  </tr>
+                  <tr><tr><!--Shipping-->
+                      <td  colspan="3" width="67%">Shipping</span></td>
+                      <td width="54%">$<script>document.write(shipping.toFixed(2));</script></td>
+                    </tr>
+                  <tr> <!--Total-->
+                    <td colspan="3" width="67%"><strong>Total</strong></td>
+                    <td width="54%"><strong>$<script>document.write(total.toFixed(2));</script></strong></td>
+                  </tr>
+                  <tr> <!--Shipping policy-->
+                    <td style="text-align: center;" colspan="4"> <strong>OUR SHIPPING POLICY IS: A subtotal $0 - $49.99 will be $2 shipping
+                      A subtotal $50 - $99.99 will be $5 shipping
+                      Subtotals over $100 will be charged 5% of the subtotal amount</strong>
+                    </td>
+                </tr>
+            </tbody>
+              </table> 
+            </section>
+    <section>
+        <!--the purchase button leads to the invoice, email-->
+        <div style="text-align:center">  
+            <div class="registerform">
+            <input type="submit" value='Confirm Order' class="button big special" name="purchase_submit_button" onclick="checkCart()">
+            <!--check cart is enacted when button is pushed-->
+    </div>
+    </div>
+    </html>

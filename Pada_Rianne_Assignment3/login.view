@@ -1,0 +1,72 @@
+<!--Rianne Pada-->
+<!--Login page. Allows user to enter their information and access their invoice once they login successfully-->
+
+    
+    <!--LOGIN IN TEMPLATE MADE BY Mohamed Azouaoui https://github.com/azouaoui-med-->
+    <!DOCTYPE html>
+    <html lang="en" dir="ltr">
+    
+    <head>
+     
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <title>Login</title> <!--title on the tab-->
+      <!--STYLE SHEETS-->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+      <link rel="stylesheet" href="assets/css/custom.css">
+      <!-- Favicon and touch icons -->
+      <link rel="shortcut icon" href="assets/ico/favicon.png">
+    <style>
+      body {
+    background-image: url("https://i.ibb.co/bXn7N2Q/869.jpg");
+   }
+    </style>
+    </head>
+    
+    <body>
+      <div class="login-title text-center">
+        <h2><span>Rianne's<br><strong>Handmade Earrings</strong></span></h2> <!--Header/title at top of page-->
+  </div>
+  <div class="login-content">
+    <div class="login-header "> <!--defines div class of header-->
+        <div style="text-align:center">  
+        <h3><strong>Welcome,</strong></h3>
+        <h5>Please login to access your invoice</h5> <!--Telling users what to do/ why they are at the login page-->
+    </div>
+      <form name="loginName" class="login-form" method="POST" action="process_login"> <!--form, when button is clicked it POSTS-->
+        <div class="container">
+          <div style="text-align:center"> 
+              <label for="username"><b>Username:</b></label> <!--label above textbox-->
+              <input type="text" id="username" name="username" placeholder="Username..." required > 
+              <br>
+              <span>
+                ${(error.username)}
+              </span>
+              <br> <br> <!--text box to submit username-->
+              <label for="password"><b>Password:</b></label> <!--label above textbox-->
+              <input type="password" placeholder="Password..." name="password" required>
+              <br>
+              <span>
+                ${(error.password)}
+              </span><br> <!--text box to submit password, hides password text-->
+      <br>
+      <div style="text-align:center"> 
+  </div>
+  </form>
+ 
+        <input name="login_submit_button" type="submit" class="logbtn" value="Login"> <!--code for button-->
+    <br>
+    <br>
+        <div class="bottom-text">
+         New User? <!--telling users that if they dont have an account they can register by clicking the register button-->
+        <form method="get" action="/register.html">
+    <button type="submit">Register</button>
+</form><!--when button is pushed users are redirected to registration.html-->
+          <h5>Bootstrap login template made by <a href="https://github.com/azouaoui-med" class="bold"> Mohamed Azouaoui</a></h5><!--Credit to template-->                  
+        </div>
+      </form>
+    </body>
+    
+    </html>

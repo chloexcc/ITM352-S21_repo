@@ -75,8 +75,8 @@ app.post("/process_register", function (req, res) {
     errors.push('Full Name Too Long')// fullname length :1-20
   }
   
-    var reguser = req.body.username.toLowerCase(); //username in lowercase
-    if (typeof user_data[reguser] != 'undefined') {
+    var regiser = req.body.username.toLowerCase(); //username in lowercase
+    if (typeof user_data[regiser] != 'undefined') {
       errors.push('Username taken')
     }
     
@@ -126,7 +126,7 @@ app.post("/process_purchase", function (request, response) { //Processing the pu
         for (i = 0; i < products.length; i++) {
 
     qty=POST[`quantity${i}`];
-        hasquantities=hasquantities || qty>0; // is valid if value > 0
+        hasquantities=hasquantities || qty>0; // is valid if value > 0ƒ
         hasvalidquantities=hasvalidquantities && isNonNegInt(qty);  // is valid if both > 0  
         } 
 

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta caixin="utf-8">
+    <title>Bouquet Shop</title>
+    <script src="/js/products.js" type="text/javascript"></script>
+    <link href="https://fonts.googleapis.com/css?family=Cherry+Swash|Raleway" rel="stylesheet">
+    <link rel="stylesheet" href="css/products-style.css">
+</head>
+
+<body>
+    <div class="action">
+        <div class="profile" onclick="menuToggle();">
+            <img src="user_icons/user.png">
+        </div>
+
+        <% if (username) { %>
+        <div class="user_menu">
+           <h3 style="text-align: center">Hi, <%= username.fullname%></h3>
+           <ul>
+            <li ><img src="/user_icons/user.png"><a href="#">Profile</a></li>
+            <li ><img src="user_icons/shopping-cart.png"><a href="cart">Cart</a></li>
+            <li ><img src="user_icons/log-out.png"><a href="logout">Log Out</a></li>
+            </ul>
+            </div>
+
+        <% }else{ %>
+            <div class="user_menu">
+            <ul>
+            <li><img src="user_icons/login.png"><a href="login">Log in</a></li>
+            </ul>
+            </div>
+        <%}%>
+        
+    </div>
+    <div>
+        <script>
+        function menuToggle() {
+            const toggleMenu = document.querySelector('.user_menu');
+            toggleMenu.classList.toggle('active')
+        }
+        </script>
+        <header>
+            <h1> Bouquet Flower Shop</h1>
+        </header>
+
+            <main>
+                <script>
+                for (i = 0; i < products.length; i++) {
+                    document.write(`<br>
+                <section class="item">
+            
+                <h2>${products[i].type}</h2>
+                <br>
+                <p>$${products[i].price}</p>
+                <br>
+                <div class = "img_pad">
+                <img src="./flowerimages/${products[i].image}" class="flowerImage">
+                </div>
+                <br>
+              <form action="/add-to-cart"  method="POST">
+                     <label id="quantity${i}_label">Quantity</label>
+                     <input type="text" placeholder="0" name="quantity" class="inputbox">
+                     <input type="hidden" name="productId" value="${products[i].id}">
+                     <input type="hidden" name="type" value="${products[i].type}">
+                     <input type="hidden" name="price" value="${products[i].price}">
+                     <button type="submit">save to cart</button>
+                </form>
+
+
+            </section>
+            `)
+                }
+                </script>
+            </main>
+    </div>
+    <br>
+
+    <footer>
+        <h1>
+            Your Must Go Flower Bouquet Site
+        </h1>
+    </footer>
+</body>
+
+</html>
+<!-- http://localhost:8080/shopping_cart.html?quantity0=123&add_to_cart=Add%20to%20cart&quantity1=43&quantity2=&quantity3=&quantity4=&quantity5=&purchased=true&username=admin123 -->
+

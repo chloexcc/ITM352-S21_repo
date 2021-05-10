@@ -1,0 +1,17 @@
+{
+  "123123": {
+    "name": "Xiaoying Cheng",
+    "password": "123123123",
+    "email": "chloeeexc@gmail.com"
+  },
+  "itm352": {
+    "name": "ITM 352",
+    "password": "grader",
+    "email": "grader@hawaii.edu"
+  },
+  "amencel": {
+    "name": "Alyssa Mencel",
+    "password": "123456",
+    "email": "amencel@hawaii.edu"
+  }
+}

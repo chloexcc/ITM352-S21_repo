@@ -1,0 +1,181 @@
+ <!--Rianne Pada
+Home/starting page-->
+ <script src="./products.js" type="text/javascript"></script> <!--calls products.js file-->
+  
+  <!--template adapted from https://www.free-css.com/free-css-templates/page203/e-shopper-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        /*styling the navbar*/
+        .topnav {
+      overflow: hidden;
+      background-color: pink;
+    }
+    
+    .topnav a {
+      float: left;
+      color: #f2f2f2;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      font-size: 17px;
+    } /* Changes color on hover*/
+     </style>
+     </head><!--/head-->
+     <body>
+         <div class="header-middle"><!--header-middle-->
+             <div class="container">
+                 <div class="row">
+                         <div class="btn-group pull-right clearfix">
+                             <div class="btn-group">
+                                 <h1>Rianne's Handmade Earrings</h1> <!--large title-->
+                                 </button>
+                             </div>
+                         </div>
+                     </div>
+    <script> 
+    // REFERENCED FROM DANIEL PORT OFFICE HOURS APPOINTMENT 12/14
+    function getCookie(cname) { // pull in cookie
+      var name = cname + "="; 
+      var decodedCookie = decodeURIComponent(document.cookie); // setting cookie variable
+      var ca = decodedCookie.split(';'); // splitting cookie
+      for(var i = 0; i <ca.length; i++) {
+        var c = ca[i]; // setting variables
+        while (c.charAt(0) == ' ') {
+          c = c.substring(1);
+        } // getting cookie by name 
+        if (c.indexOf(name) == 0) {  
+          return c.substring(name.length, c.length);
+        }
+      }
+      return ""; // returing cookie
+    }
+    </script>
+
+</head>
+<div class="topnav"> 
+    <!--nav bar on the top-->
+    <a class="active" href="./index.html">Home</a> 
+    <a class="active" href="./all.html">All</a> 
+    <a href="./tvmovie.html">TV, Movies and Music</a> 
+    <a href="./videogame.html">Video Game</a> 
+    <a href="./holidays.html">Holidays</a>
+    <a href="./objectfood.html">Objects and Food</a> 
+    <script>
+       // REFERENCED FROM DANIEL PORT OFFICE HOURS APPOINTMENT 12/14
+    function getCookie(cname) { // pull in cookie
+      var name = cname + "="; 
+      var decodedCookie = decodeURIComponent(document.cookie); // setting cookie variable
+      var ca = decodedCookie.split(';'); // splitting cookie
+      for(var i = 0; i <ca.length; i++) {
+        var c = ca[i]; // setting variables
+        while (c.charAt(0) == ' ') {
+          c = c.substring(1);
+        } // getting cookie by name 
+        if (c.indexOf(name) == 0) {  
+          return c.substring(name.length, c.length);
+        }
+      }
+      return ""; // returing cookie
+    }
+    var username = getCookie('username'); // get the cookies username
+    console.log(username); // write it in console
+    if (username != ""){ // if username is NOT undefined
+        document.write(`<a href="./logout">Logout ${username}</a>`); // shows text to log the user out
+    } else { // if the username IS undefined
+        document.write(`<a href="./login">Login</a>`); // shows text to log user in
+    }
+</script><a href="./cart.html"><script>
+            // REFERENCED FROM ALYSSA MENCEL
+                            var cart = sessionStorage.length; // cart is in session storage
+                                        if (cart > 0) { // if cart amount is greater than 0
+                                            document.write(`
+                                                <p><font color="#555f66"> Shopping Cart </font> <font color="#629DD1">(${cart})</font></p>
+                                            `) // show the number of items in the cart
+                                        }
+                                        else { // if there are no items in cart
+                                            document.write (`<p> <font color="#555f66"> Shopping Cart </font> </p> `)
+                                        }; // just show the shopping cart label
+                        </script></a>
+                </div>
+        </header>
+
+        <head>
+      
+            <meta charset="utf-8" />
+            <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+            <meta name="description" content="" />
+            <meta name="author" content="" />
+            <title>Welcome</title> <!--title on tab-->
+            <link rel="icon" type="image/x-icon" href="" />
+            <!-- Font Awesome icons (free version)-->
+            <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
+            <!-- Google fonts-->
+            <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+            <link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+            <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+            <!-- Core theme CSS (includes Bootstrap)-->
+            <link href="css/styles.css" rel="stylesheet" />
+        </head>
+    <!-- One -->
+    <body id="page-top">
+     
+    <div align="center">
+            <script>
+                  // REFERENCED FROM ALYSSA MENCEL
+                                // to display user information on the page
+                                var theUser = getCookie('name'); // gets name cookie
+                                var theUsername = getCookie('username'); //gets username cookie
+                                var theEmail = getCookie('email'); // gets email cookie
+                                var lastVisited = getCookie('last_login_time'); // pulls the last time someone logged in
+                                if (theUsername != '') { // if the username is NOT undefined, display username and last time visited
+                                    document.write(`
+                                        <p> Thank you, ${theUsername}</font><p> 
+                                    `)
+                                };
+            </script>
+
+        </section>
+
+</div>
+        <!-- Navigation-->
+    
+        <!-- Masthead-->
+        <div style="text-align:center">  
+            <!--cute girl with pearl earring winking gif-->
+                <br><img src="https://i.ibb.co/gt5Fy5H/source.gif" alt="source" width="350px" lenth="350px"><br><br>
+                <!--button to enter the store-->
+                <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="/all.html">Click here to enter store</a><br>
+           </div>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Third party plugin JS-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+        <!-- Contact form JS-->
+    </body>
+</html>	
+     
+<div style="text-align:center"> 
+    <script>
+           // REFERENCED FROM ALYSSA MENCEL
+           //I wanted the time visited on the bottom hence why there's two of these functions on this code
+                                // to display user information on the page
+                                var theUser = getCookie('name'); // gets name cookie
+                                var theUsername = getCookie('username'); //gets username cookie
+                                var theEmail = getCookie('email'); // gets email cookie
+                                var lastVisited = getCookie('last_login_time'); // pulls the last time someone logged in
+                                if (theUsername != '') { // if the username is NOT undefined, display username and last time visited
+                                    document.write(`
+                                        <p>Last log-in: <font color="#629DD1">${lastVisited}</font></p>
+                                    `)
+        }; 
+    </script>
+
+</section>
+
+</div>
+</body>
+
+</html>

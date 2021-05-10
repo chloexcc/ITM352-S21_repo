@@ -1,0 +1,56 @@
+{
+  "itm352": {
+    "name": "ITM 352 Grader",
+    "password": "grader",
+    "email": "dport@hawaii.edu",
+    "address": "Shidler College of Business"
+  },
+  "rpada": {
+    "name": "Rianne Pada",
+    "password": "arynaadja9",
+    "email": "rilorie@gmail.com",
+    "address": "737 8th Ave"
+  },
+  "dbowie": {
+    "name": "David Bowie",
+    "password": "spaceoddity",
+    "email": "starman@gmail.com",
+    "address": "The Universe"
+  },
+  "pleasework": {
+    "name": "Please Work",
+    "password": "password",
+    "email": "rilorie@gmail.com",
+    "address": "737 8th Ave"
+  },
+  "frankiero": {
+    "name": "Frank Iero",
+    "password": "frankie1",
+    "email": "frankiero@gmail.com",
+    "address": "frankiero@gmail.com"
+  },
+  "raytoro": {
+    "name": "Ray Toro",
+    "password": "raytoro",
+    "email": "rilorie@gmail.com",
+    "address": "737 8th Ave"
+  },
+  "mikeyway": {
+    "name": "Mikey Way",
+    "password": "mikey123",
+    "email": "mikeyway@gmail.com",
+    "address": "737 8th Ave"
+  },
+  "jbieber": {
+    "name": "Justin Bieber",
+    "password": "biebs123",
+    "email": "jbieber@gmail.com",
+    "address": "Canada"
+  },
+  "sadlol": {
+    "name": "Feeling Sad",
+    "password": "sadlol",
+    "email": "4@gmail.com",
+    "address": "444"
+  }
+}
